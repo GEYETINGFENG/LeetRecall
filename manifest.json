@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "LeetRecall 思路卡",
+  "version": "0.1.0",
+  "description": "做完 LeetCode 自动记录，写一句话思路，用 FSRS 间隔重复翻卡复习。支持 leetcode.com / leetcode.cn。",
+  "icons": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "action": {
+    "default_title": "LeetRecall 思路卡",
+    "default_popup": "pages/popup.html",
+    "default_icon": { "16": "icons/icon16.png", "48": "icons/icon48.png", "128": "icons/icon128.png" }
+  },
+  "background": { "service_worker": "src/background.js", "type": "module" },
+  "permissions": ["storage", "unlimitedStorage", "alarms", "notifications"],
+  "host_permissions": ["https://leetcode.com/*", "https://leetcode.cn/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*", "https://leetcode.cn/*"],
+      "js": ["src/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://leetcode.com/*", "https://leetcode.cn/*"],
+      "js": ["src/content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    { "resources": ["src/panel.css"], "matches": ["https://leetcode.com/*", "https://leetcode.cn/*"] }
+  ],
+  "options_page": "pages/app.html#settings"
+}
