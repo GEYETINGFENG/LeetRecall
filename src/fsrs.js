@@ -79,7 +79,7 @@ export function preview(sched, now = Date.now(), opts = {}) {
   out[2].ivl = Math.min(out[2].ivl, out[3].ivl);
   out[3].ivl = Math.max(out[3].ivl, out[2].ivl + 1);
   out[4].ivl = Math.max(out[4].ivl, out[3].ivl + 1);
-  for (const g of [1, 2, 3, 4]) out[g].due = startOfDay(now) + out[g].ivl * DAY;
+  for (const g of [1, 2, 3, 4]) out[g].due = startOfDay(startOfDay(now) + out[g].ivl * DAY + DAY / 2); // DST-safe local midnight
   return out;
 }
 
