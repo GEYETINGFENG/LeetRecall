@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --bg: #f6f7fb; --card: #ffffff; --fg: #1d2130; --muted: #6b7285; --line: #e3e6ef;
   --accent: #5b6cff; --accent-soft: #eef0ff; --r1: #e5484d; --r2: #c98a00; --r3: #18a058; --r4: #2f7cf6;
@@ -18,6 +19,8 @@ button { font: inherit; cursor: pointer; }
 .btn { padding: 7px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
 .btn:hover { border-color: var(--accent); }
 .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary kbd { color: #fff; border-color: rgba(255,255,255,.55); }
+.btn:disabled { opacity: .5; cursor: default; }
 .btn.danger { color: var(--r1); }
 .btn.sm { padding: 3px 10px; font-size: 12px; }
 input, select, textarea { font: inherit; color: var(--fg); background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 9px; outline: none; }
@@ -87,7 +90,7 @@ td .idea1 { color: var(--muted); font-size: 12.5px; max-width: 380px; overflow: 
 .modal .ft { display: flex; justify-content: space-between; margin-top: 18px; gap: 8px; flex-wrap: wrap; }
 
 /* ---------- heatmap ---------- */
-.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px); gap: 3px; }
+.heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px); grid-auto-columns: 12px; gap: 3px; justify-content: start; }
 .heat i { width: 12px; height: 12px; border-radius: 3px; background: var(--line); }
 .heat i.l1 { background: #c7cdff; } .heat i.l2 { background: #9aa5ff; } .heat i.l3 { background: #6c7cff; } .heat i.l4 { background: #3f4fe0; }
 
