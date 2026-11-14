@@ -1,77 +1,79 @@
-# LeetRecall 思路卡
+# LeetRecall
 
-> 刷完就忘？把每道题浓缩成一张**思路卡**，用间隔重复（FSRS）翻卡复习，几秒一张。
+**English** | [简体中文](README.zh-CN.md)
 
-LeetRecall 是一个 Chrome 插件（Manifest V3），支持 leetcode.com 和 leetcode.cn。提交 AC 后会自动弹出面板，你写下一句话思路、套路、复杂度和易错点，按做题时的感觉打个分，插件就用 FSRS 算法排好复习日期。复习时**先看题目自己回想思路，再翻面核对**，真想不起来再去重做原题。
+> Solve it, forget it, solve it again? LeetRecall turns every problem into a one-line **idea card** and drills you with spaced repetition (FSRS), a few seconds per card.
+
+LeetRecall is a Chrome extension (Manifest V3) for leetcode.com and leetcode.cn. When a submission is accepted, a panel pops up so you can write down the key idea, the pattern, the complexity and the pitfalls, then rate how hard it was. LeetRecall schedules the next review with FSRS. When a card comes up, you **recall the idea from the title first, then flip to check**. Only if you really can't remember do you go back and re-solve it.
 
 <p>
-  <img src="docs/screenshots/panel.png" width="300" alt="AC 后弹出的思路卡面板" />
-  <img src="docs/screenshots/review-back.png" width="520" alt="翻卡复习：背面" />
+  <img src="docs/screenshots/panel.png" width="300" alt="Idea card panel after an accepted submission" />
+  <img src="docs/screenshots/review-back.png" width="520" alt="Flip-card review, back side" />
 </p>
 
-## 为什么做这个
+## Why
 
-现有的 LeetCode 复习工具大多只解决「哪天该复习哪道题」，复习方式是把整道题重做一遍，一次 20 分钟起步。Anki 卡组能翻卡，但内容是别人写的，还要手动截图贴题。LeetRecall 想把两边的好处合在一起：
+Most LeetCode review tools only answer *"which problem should I review today?"*, and reviewing means re-solving the whole problem, which takes 20+ minutes each time. Anki decks let you flip cards, but someone else wrote the content and you end up pasting screenshots by hand. LeetRecall combines the strengths of both:
 
-| | 常见刷题复习插件 | Anki 卡组 | LeetRecall |
+| | Typical review extensions | Anki decks | LeetRecall |
 |---|---|---|---|
-| AC 后自动记录 | ✅ | ❌ | ✅（Ctrl/⌘+Enter 提交也能识别） |
-| 卡片内容 | 无，或附带笔记 | 别人写好的 | **你自己的一句话思路** + 套路 + 复杂度 + 易错点 + AC 代码 |
-| 复习方式 | 重做原题 | 翻卡 | **翻卡**，想不起来再重做 |
-| 调度算法 | 固定间隔 / FSRS | FSRS / SM-2 | FSRS-4.5 |
-| 按套路专项复习 | 少见 | 靠标签 | ✅ 统计页按掌握程度排序，点一下就能专项练 |
-| 手机端 | 少见 | ✅ | 导出 Anki 卡组，用 AnkiMobile / AnkiDroid 刷 |
-| 导入旧记录 | 少见 | ❌ | ✅ 一键导入你账号里 AC 过的题 |
+| Auto-capture accepted submissions | ✅ | ❌ | ✅ (Ctrl/⌘+Enter included) |
+| Card content | None, or a free-form note | Written by others | **Your own one-line idea**, plus pattern, complexity, pitfalls and accepted code |
+| How you review | Re-solve the problem | Flip cards | **Flip cards**; re-solve only when you forget |
+| Scheduler | Fixed intervals / FSRS | FSRS / SM-2 | FSRS-4.5 |
+| Drill by pattern | Rare | Via tags | ✅ Weakest patterns ranked first, one click to drill |
+| Mobile | Rare | ✅ | Export to Anki, then review on AnkiMobile / AnkiDroid |
+| Import past solves | Rare | ❌ | ✅ One click imports every problem your account has solved |
 
-## 功能
+## Features
 
-- **自动采集**：拦截 LeetCode 自己的 `submit` / `check` 请求来判断 AC，所以点按钮或用快捷键提交都能识别；「运行」测试用例和 WA 不会误触发。网络钩子万一失效，还会监听页面上的结果面板作为兜底。同时记录用时和提交次数，据此推荐评分。
-- **思路卡面板**：AC 后在页面右下角弹出（Shadow DOM，不影响 LeetCode 的样式），也可以随时点右下角的「思路卡」按钮新建或编辑。在面板里打字不会触发 LeetCode 的快捷键。
-- **FSRS 调度**：内置 FSRS-4.5 默认参数，目标记忆保持率和最长间隔都能调。今天到期的卡按记忆度从低到高排，最容易忘的先出。
-- **翻卡复习**：按空格翻面，按 1–4 评分。正面默认隐藏套路标签，因为标签本身就是提示。翻到还没写思路的卡，可以直接在背面补写。
-- **三种复习范围**：今日任务（有每日复习上限和新卡上限）、按套路专项、全部随机抽查。
-- **卡片库**：按题号、标题、思路搜索，按难度和套路筛选，按复习时间、记忆度或「没写思路的优先」排序。
-- **统计**：复习热力图、连续复习天数、各套路的平均记忆度和遗忘次数，最薄弱的套路排在最前面。
-- **导入导出**：一键导入 AC 记录；导出 JSON 备份和合并恢复、按套路分组的 Markdown 笔记、Anki 卡组（`.txt`，含标签）。
-- **提醒**：工具栏图标显示今天待复习的数量，每天定时发一条通知。
+- **Auto-capture**: LeetRecall hooks LeetCode's own `submit` / `check` requests, so both the Submit button and the keyboard shortcut are detected. "Run" test cases and Wrong Answers don't trigger it. If the network hook ever misses, it falls back to watching the on-page result panel. It also records how long you took and how many attempts you made, and uses them to suggest a rating.
+- **In-page idea panel**: pops up in the bottom-right corner after an accepted submission. It lives in a Shadow DOM, so it never touches LeetCode's styles. You can also open it any time from the floating button. Typing in the panel won't trigger LeetCode's keyboard shortcuts.
+- **FSRS scheduling**: FSRS-4.5 with default parameters, plus configurable target retention and maximum interval. Due cards are sorted by retrievability, so the ones you're most likely to forget come first.
+- **Flip-card review**: press Space to flip and 1–4 to rate. Pattern tags are hidden on the front by default, since the tag itself is a hint. If a card has no idea written yet, you can add one right on the back.
+- **Three review modes**: today's queue (with daily review and new-card limits), drill by pattern, or a random spot check of all cards.
+- **Library**: search by number, title or idea; filter by difficulty and pattern; sort by due date, retrievability or "missing idea first".
+- **Stats**: review heatmap, streak, and average retrievability and lapses per pattern, with the weakest patterns first.
+- **Import / export**: one-click import of your accepted problems; JSON backup with merge-restore; Markdown notes grouped by pattern; Anki deck (`.txt` with tags).
+- **Reminders**: the toolbar badge shows how many cards are due today, and a daily notification reminds you to review.
 
-## 安装
+## Install
 
-还没上架 Chrome 商店，先用开发者模式加载：
+LeetRecall isn't on the Chrome Web Store yet. To load it in developer mode:
 
-1. 下载或 clone 本仓库。
-2. 打开 `chrome://extensions`，打开右上角的「开发者模式」。
-3. 点「加载已解压的扩展程序」，选择仓库根目录（就是有 `manifest.json` 的那个文件夹）。
-4. 打开任意一道 LeetCode 题，右下角出现「思路卡」按钮就装好了。
+1. Download or clone this repository.
+2. Open `chrome://extensions` and turn on **Developer mode** (top right).
+3. Click **Load unpacked** and select the repository root (the folder containing `manifest.json`).
+4. Open any LeetCode problem. When the 思路卡 button appears in the bottom-right corner, you're set.
 
-Edge、Brave、Arc 等 Chromium 内核的浏览器同样适用。
+It also works in other Chromium-based browsers such as Edge, Brave and Arc.
 
-## 数据和隐私
+## Data & privacy
 
-所有数据都保存在本地的 `chrome.storage.local`，没有服务器，也不收集任何数据。插件只会访问 leetcode.com / leetcode.cn：读取题目信息，以及在你点导入时读取你的 AC 列表。换电脑时用「备份 JSON」再「从 JSON 恢复」即可。
+Everything is stored locally in `chrome.storage.local`. There's no server and no tracking. The extension only talks to leetcode.com / leetcode.cn: it fetches problem metadata, and reads your accepted-problem list when you click Import. To move to another computer, use **Backup JSON** and then **Restore from JSON**.
 
-## 项目结构
+## Project structure
 
 ```
 manifest.json
 src/
-  inject.js       # 页面 MAIN world：hook fetch/XHR，识别 submit → check → AC
-  content.js      # 隔离 world：思路卡面板（Shadow DOM）、题目元数据、SPA 路由
+  inject.js       # MAIN world: hooks fetch/XHR, follows submit → check → Accepted
+  content.js      # Isolated world: idea panel (Shadow DOM), problem metadata, SPA routing
   panel.css
-  background.js   # Service worker：消息路由、徽标计数、每日提醒
-  fsrs.js         # FSRS-4.5 调度（按天计算间隔，兼容夏令时）
-  store.js        # 存储层、复习队列、每日上限
+  background.js   # Service worker: message router, badge count, daily reminder
+  fsrs.js         # FSRS-4.5 scheduler (day-level intervals, DST-safe)
+  store.js        # Storage layer, review queue, daily limits
 pages/
-  popup.*         # 工具栏弹窗
-  app.*           # 翻卡复习 / 卡片库 / 统计 / 设置与导入导出
+  popup.*         # Toolbar popup
+  app.*           # Review / Library / Stats / Settings & import-export
 tests/
   fsrs.test.mjs           # node tests/fsrs.test.mjs
-  e2e_mock_leetcode.py    # Playwright + 模拟 LeetCode 页面的端到端测试
+  e2e_mock_leetcode.py    # Playwright end-to-end test against a mock LeetCode page
 ```
 
-纯原生 JS，没有构建步骤，也没有第三方依赖。
+Vanilla JS, with no build step and no dependencies.
 
-## 测试
+## Tests
 
 ```bash
 node tests/fsrs.test.mjs
@@ -79,15 +81,15 @@ pip install playwright
 CHROME=/path/to/chrome-for-testing python tests/e2e_mock_leetcode.py
 ```
 
-端到端测试会加载这个插件，用一个模拟的 LeetCode 页面依次走一遍「运行 → WA → AC → 写思路 → 评分 → 翻卡复习」。注意：正式版 Google Chrome 已不支持 `--load-extension`，请用 Chrome for Testing 或 Chromium。
+The end-to-end test loads the extension and walks through Run → Wrong Answer → Accepted → write idea → rate → flip-card review on a mock LeetCode page. Branded Google Chrome no longer supports `--load-extension`, so use Chrome for Testing or Chromium.
 
 ## Roadmap
 
-- [ ] 根据 AC 代码自动生成思路草稿（接入用户自己的 LLM API key）
-- [ ] 题单预设（Blind 75 / NeetCode 150 / Grind 75）
-- [ ] 根据自己的复习记录优化 FSRS 参数
-- [ ] 可选的云同步
-- [ ] 上架 Chrome Web Store
+- [ ] Draft the idea automatically from your accepted code (bring your own LLM API key)
+- [ ] Built-in problem lists (Blind 75 / NeetCode 150 / Grind 75)
+- [ ] Optimize FSRS parameters from your own review history
+- [ ] Optional cloud sync
+- [ ] Publish to the Chrome Web Store
 
 ## License
 
