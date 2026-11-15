@@ -14,8 +14,13 @@ dependencies = [
 ]
 
 [project.scripts]
-leetrecall-ai = "leetrecall_ai:main"
+leetrecall-mcp = "leetrecall_ai.mcp_server:main"
 
 [build-system]
 requires = ["uv_build>=0.13.7,<0.14.0"]
 build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]

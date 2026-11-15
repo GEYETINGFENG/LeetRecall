@@ -14,3 +14,6 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# local working data (seeded from data/leetrecall-seed-backup.json)
+server/var/
