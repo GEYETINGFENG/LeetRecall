@@ -1,0 +1,21 @@
+[project]
+name = "leetrecall-ai"
+version = "0.1.0"
+description = "AI backend for LeetRecall: ADK multi-agent + MCP + Qdrant RAG"
+authors = [
+    { name = "JIAJUN CHEN", email = "20223802010@m.scnu.edu.cn" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=2.8.0",
+    "google-adk>=2.14.0",
+    "mcp>=2.3.0",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+leetrecall-ai = "leetrecall_ai:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
