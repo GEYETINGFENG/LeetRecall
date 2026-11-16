@@ -22,6 +22,16 @@ class ToolCall:
 
 
 @dataclass
+class AgentUsage:
+    llm_calls: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+    thinking_tokens: int = 0
+    first_ts: float = 0.0
+    last_ts: float = 0.0
+
+
+@dataclass
 class RunTrace:
     latency_s: float = 0.0
     input_tokens: int = 0
@@ -31,6 +41,8 @@ class RunTrace:
     tool_calls: list[ToolCall] = field(default_factory=list)
     final_text: str = ""
     state: dict[str, Any] = field(default_factory=dict)
+    per_agent: dict[str, AgentUsage] = field(default_factory=dict)
+    state_log: list[tuple[str, dict[str, Any]]] = field(default_factory=list)  # (author, state_delta) in order
 
 
 def _slugs_in(obj: Any) -> set[str]:
@@ -52,7 +64,8 @@ def seen_slugs(trace: RunTrace) -> set[str]:
     return set().union(*(_slugs_in(tc.response) for tc in trace.tool_calls if not tc.is_error))
 
 
-async def run_once(agent: BaseAgent, prompt: str, app_name: str = "leetrecall") -> RunTrace:
+async def run_once(agent: BaseAgent, prompt: str, app_name: str = "leetrecall",
+                   state: dict[str, Any] | None = None) -> RunTrace:
     runner = InMemoryRunner(agent=agent, app_name=app_name)
     session = await runner.session_service.create_session(app_name=app_name, user_id="user")
     trace = RunTrace()
@@ -61,12 +74,19 @@ async def run_once(agent: BaseAgent, prompt: str, app_name: str = "leetrecall") 
     async for ev in runner.run_async(
         user_id="user", session_id=session.id,
         new_message=types.Content(role="user", parts=[types.Part(text=prompt)]),
+        state_delta=state,
     ):
+        au = trace.per_agent.setdefault(ev.author, AgentUsage(first_ts=ev.timestamp))
+        au.last_ts = ev.timestamp
+        if ev.actions and ev.actions.state_delta:
+            trace.state_log.append((ev.author, dict(ev.actions.state_delta)))
         if ev.usage_metadata and not ev.partial:
-            trace.llm_calls += 1
-            trace.input_tokens += ev.usage_metadata.prompt_token_count or 0
-            trace.output_tokens += ev.usage_metadata.candidates_token_count or 0
-            trace.thinking_tokens += ev.usage_metadata.thoughts_token_count or 0
+            u = ev.usage_metadata
+            for tgt in (trace, au):
+                tgt.llm_calls += 1
+                tgt.input_tokens += u.prompt_token_count or 0
+                tgt.output_tokens += u.candidates_token_count or 0
+                tgt.thinking_tokens += u.thoughts_token_count or 0
         for fc in ev.get_function_calls() or []:
             tc = ToolCall(agent=ev.author, name=fc.name, args=dict(fc.args or {}))
             pending[fc.id or str(uuid.uuid4())] = tc
@@ -92,4 +112,6 @@ def dump(trace: RunTrace) -> str:
         "latency_s": trace.latency_s, "llm_calls": trace.llm_calls,
         "tokens": {"input": trace.input_tokens, "output": trace.output_tokens, "thinking": trace.thinking_tokens},
         "tool_calls": calls,
+        "per_agent": {a: {"llm_calls": u.llm_calls, "in": u.input_tokens, "out": u.output_tokens,
+                          "span_s": round(u.last_ts - u.first_ts, 2)} for a, u in trace.per_agent.items() if u.llm_calls},
     }, ensure_ascii=False, indent=2)
