@@ -17,3 +17,7 @@ __pycache__/
 
 # local working data (seeded from data/leetrecall-seed-backup.json)
 server/var/
+
+# eval transcripts are bulky; results.jsonl + summary.md are committed
+server/eval/runs/**/traces/
+server/eval/runs/**/report.html
