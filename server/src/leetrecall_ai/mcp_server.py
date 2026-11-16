@@ -4,11 +4,12 @@ Agents never touch storage directly; every read/write goes through these tools. 
 place to enforce guardrails (pattern whitelist, never touching FSRS scheduling) and lets any MCP
 client — our ADK agents, Claude Desktop, MCP Inspector — use the same library.
 
-Run (stdio):       uv run leetrecall-mcp
+Run (stdio):       uv run leetrecall-mcp          (Qdrant store; LEETRECALL_STORE_BACKEND=json for the file store)
 Inspect manually:  npx @modelcontextprotocol/inspector uv run leetrecall-mcp
 """
 from __future__ import annotations
 
+import os
 import time
 from collections.abc import Callable
 from datetime import datetime
@@ -45,6 +46,14 @@ class CardSummary(BaseModel):
 class SearchResult(BaseModel):
     total: int = Field(description="number of matching cards before applying limit")
     items: list[CardSummary]
+
+
+class SimilarCard(CardSummary):
+    score: float = Field(description="cosine similarity of the ideas, 0..1")
+
+
+class SimilarResult(BaseModel):
+    items: list[SimilarCard]
 
 
 class CardDetail(CardSummary):
@@ -136,6 +145,20 @@ def build_server(store: CardStore, now: Callable[[], float] = time.time) -> MCPS
             hits.append(c)
         return SearchResult(total=len(hits), items=[_summary(c) for c in hits[:limit]])
 
+    if hasattr(store, "similar"):  # only stores with a vector index offer semantic search
+
+        @mcp.tool(annotations=READ_ONLY)
+        def find_similar_cards(
+            idea: Annotated[str, Field(description=(
+                "1-2 sentences in Chinese describing the solution idea, written the way an idea card would "
+                "(what is maintained, what decision is made at each step). Not code, not the problem title."))],
+            k: Annotated[int, Field(ge=1, le=10)] = 3,
+            exclude_slug: Annotated[str, Field(description="slug of the problem being worked on, so it doesn't match itself")] = "",
+        ) -> SimilarResult:
+            """Semantic search: find cards whose solution idea is similar to the given description."""
+            hits = store.similar(idea, k=k, exclude_slug=exclude_slug)
+            return SimilarResult(items=[SimilarCard(**_summary(c).model_dump(), score=s) for c, s in hits])
+
     @mcp.tool(annotations=READ_ONLY)
     def get_card(
         slug: Annotated[str, Field(description="LeetCode problem slug, e.g. daily-temperatures")],
@@ -192,8 +215,15 @@ def build_server(store: CardStore, now: Callable[[], float] = time.time) -> MCPS
     return mcp
 
 
+def default_store() -> CardStore:
+    if os.environ.get("LEETRECALL_STORE_BACKEND", "qdrant") == "json":
+        return JsonCardStore()
+    from .rag.index import QdrantCardStore  # heavy import (onnxruntime): only when used
+    return QdrantCardStore()
+
+
 def main() -> None:
-    build_server(JsonCardStore()).run("stdio")
+    build_server(default_store()).run("stdio")
 
 
 if __name__ == "__main__":

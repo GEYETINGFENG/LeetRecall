@@ -104,8 +104,34 @@ async def test_stdio_end_to_end(tmp_path):
 
     params = StdioServerParameters(
         command="uv", args=["run", "--quiet", "leetrecall-mcp"],
-        cwd=str(REPO / "server"), env={**os.environ, "LEETRECALL_STORE": str(tmp_path / "cards.json")},
+        cwd=str(REPO / "server"), env={**os.environ, "QDRANT_PATH": ":memory:"},
     )
     async with Client(params) as c:
         r = await c.call_tool("search_cards", {"pattern": "并查集"})
         assert r.structured_content["items"][0]["slug"] == "number-of-provinces"
+        r = await c.call_tool("find_similar_cards", {"idea": "单调栈存下标，弹出时结算"})
+        assert r.structured_content["items"][0]["slug"] == "daily-temperatures"
+
+
+@pytest.fixture(scope="module")
+def qstore():
+    from qdrant_client import QdrantClient
+    from leetrecall_ai.rag.index import QdrantCardStore
+    return QdrantCardStore(QdrantClient(location=":memory:"))
+
+
+async def test_find_similar_cards_semantic_and_excludes_self(qstore):
+    async with Client(build_server(qstore, now=lambda: NOW)) as c:
+        assert "find_similar_cards" in {t.name for t in (await c.list_tools()).tools}
+        r = await c.call_tool("find_similar_cards", {"idea": "单调递减栈存下标，遇到更大的就弹出", "k": 3})
+        items = r.structured_content["items"]
+        assert items[0]["slug"] == "daily-temperatures" and 0 < items[0]["score"] <= 1
+        r = await c.call_tool("find_similar_cards", {"idea": "单调递减栈存下标", "exclude_slug": "daily-temperatures"})
+        assert "daily-temperatures" not in [i["slug"] for i in r.structured_content["items"]]
+
+
+def test_qdrant_store_upsert_roundtrip_keeps_schedule(qstore):
+    c = qstore.get("two-sum")
+    qstore.upsert(c.model_copy(update={"idea": "补数查表"}))
+    again = qstore.get("two-sum")
+    assert again.idea == "补数查表" and again.sched == c.sched and len(qstore.all()) == 35

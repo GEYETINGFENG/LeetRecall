@@ -1,0 +1,1896 @@
+{
+  "n": 20,
+  "labels_reviewed": 0,
+  "runs": [
+    {
+      "model": "BAAI/bge-small-zh-v1.5",
+      "index_build_s": 0.14,
+      "results": {
+        "title": {
+          "hit@1": 0.35,
+          "hit@3": 0.5,
+          "mrr@5": 0.452,
+          "query_ms_p50": 1.4,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "3sum",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "linked-list-cycle",
+                "minimum-window-substring",
+                "binary-search"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "longest-substring-without-repeating-characters",
+                "subsets",
+                "implement-trie-prefix-tree"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "longest-substring-without-repeating-characters",
+                "minimum-window-substring",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "network-delay-time",
+                "kth-largest-element-in-an-array",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 3
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "rotting-oranges",
+                "kth-largest-element-in-an-array",
+                "jump-game"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "permutations",
+                "number-of-provinces",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "sliding-window-maximum",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "sliding-window-maximum",
+                "subsets",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "sliding-window-maximum",
+                "kth-largest-element-in-an-array",
+                "subsets"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "two-sum",
+                "group-anagrams",
+                "minimum-window-substring"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "minimum-window-substring",
+                "merge-intervals",
+                "implement-trie-prefix-tree"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "minimum-window-substring",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "number-of-provinces",
+                "sliding-window-maximum",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "jump-game",
+                "binary-search",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "number-of-provinces",
+                "validate-binary-search-tree",
+                "subsets"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "merge-intervals",
+                "longest-palindromic-subsequence",
+                "binary-search"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "reverse-linked-list",
+                "linked-list-cycle",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "binary-tree-level-order-traversal",
+                "subsets"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "single-number",
+                "subsets",
+                "car-pooling"
+              ],
+              "first_relevant_rank": 1
+            }
+          ]
+        },
+        "code": {
+          "hit@1": 0.15,
+          "hit@3": 0.3,
+          "mrr@5": 0.26,
+          "query_ms_p50": 3.6,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "permutations",
+                "3sum",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "longest-common-subsequence",
+                "3sum",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "3sum",
+                "longest-common-subsequence",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "longest-common-subsequence",
+                "longest-palindromic-subsequence",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "binary-search",
+                "search-in-rotated-sorted-array",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "binary-search",
+                "search-in-rotated-sorted-array",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "3sum",
+                "search-in-rotated-sorted-array",
+                "permutations"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "longest-common-subsequence",
+                "3sum",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "3sum",
+                "longest-common-subsequence",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "3sum",
+                "longest-palindromic-subsequence",
+                "longest-common-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "longest-common-subsequence",
+                "permutations",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "permutations",
+                "3sum",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "longest-common-subsequence",
+                "3sum",
+                "car-pooling"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "permutations",
+                "longest-common-subsequence",
+                "subsets"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "3sum",
+                "permutations",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "longest-common-subsequence",
+                "permutations"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "longest-common-subsequence",
+                "longest-palindromic-subsequence",
+                "3sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "longest-common-subsequence",
+                "linked-list-cycle",
+                "permutations"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "permutations",
+                "3sum",
+                "subsets"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "3sum",
+                "permutations",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 4
+            }
+          ]
+        },
+        "hyde": {
+          "hit@1": 0.8,
+          "hit@3": 0.95,
+          "mrr@5": 0.875,
+          "query_ms_p50": 2.1,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "container-with-most-water",
+                "3sum",
+                "linked-list-cycle"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "container-with-most-water",
+                "merge-intervals",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "minimum-window-substring",
+                "longest-substring-without-repeating-characters",
+                "longest-common-subsequence"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "longest-substring-without-repeating-characters",
+                "minimum-window-substring",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "merge-intervals",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "network-delay-time",
+                "car-pooling"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "single-number",
+                "subarray-sum-equals-k",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "daily-temperatures",
+                "sliding-window-maximum",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "two-sum",
+                "group-anagrams",
+                "3sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "network-delay-time",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "course-schedule",
+                "binary-tree-level-order-traversal",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "number-of-provinces",
+                "search-in-rotated-sorted-array",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "course-schedule",
+                "binary-tree-level-order-traversal"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "permutations",
+                "number-of-provinces",
+                "subsets"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "longest-palindromic-subsequence",
+                "longest-common-subsequence",
+                "climbing-stairs"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "coin-change",
+                "number-of-provinces",
+                "permutations"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "merge-intervals",
+                "jump-game",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "linked-list-cycle",
+                "reverse-linked-list",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "binary-tree-level-order-traversal",
+                "validate-binary-search-tree",
+                "permutations"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "single-number",
+                "3sum",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
+      "index_build_s": 14.53,
+      "results": {
+        "title": {
+          "hit@1": 0.2,
+          "hit@3": 0.35,
+          "mrr@5": 0.279,
+          "query_ms_p50": 3.5,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "3sum",
+                "search-in-rotated-sorted-array",
+                "single-number"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "daily-temperatures",
+                "minimum-window-substring",
+                "longest-substring-without-repeating-characters"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "number-of-provinces",
+                "group-anagrams",
+                "range-sum-query-mutable"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "group-anagrams",
+                "permutations",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "search-in-rotated-sorted-array",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "rotting-oranges",
+                "network-delay-time",
+                "validate-binary-search-tree"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "merge-k-sorted-lists",
+                "course-schedule"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "binary-tree-level-order-traversal",
+                "kth-largest-element-in-an-array",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "merge-intervals",
+                "3sum",
+                "sliding-window-maximum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "course-schedule",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "course-schedule",
+                "binary-tree-level-order-traversal",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "linked-list-cycle",
+                "lru-cache",
+                "permutations"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "number-of-provinces",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "single-number",
+                "3sum",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 3
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "jump-game",
+                "longest-substring-without-repeating-characters",
+                "container-with-most-water"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "merge-intervals",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "merge-intervals",
+                "binary-tree-level-order-traversal",
+                "binary-search"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "reverse-linked-list",
+                "3sum",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "range-sum-query-mutable",
+                "validate-binary-search-tree",
+                "binary-tree-level-order-traversal"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "3sum",
+                "subarray-sum-equals-k",
+                "car-pooling"
+              ],
+              "first_relevant_rank": 4
+            }
+          ]
+        },
+        "code": {
+          "hit@1": 0.4,
+          "hit@3": 0.45,
+          "mrr@5": 0.425,
+          "query_ms_p50": 11.9,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "3sum",
+                "climbing-stairs",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "network-delay-time",
+                "longest-common-subsequence",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "number-of-provinces",
+                "subsets",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "subarray-sum-equals-k",
+                "subsets",
+                "longest-common-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "binary-search",
+                "search-in-rotated-sorted-array",
+                "two-sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "binary-search",
+                "network-delay-time",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "subarray-sum-equals-k",
+                "course-schedule",
+                "climbing-stairs"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "network-delay-time",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "subarray-sum-equals-k",
+                "merge-k-sorted-lists",
+                "subsets"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "merge-k-sorted-lists",
+                "course-schedule",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "number-of-provinces",
+                "search-in-rotated-sorted-array",
+                "3sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "number-of-provinces",
+                "subsets",
+                "two-sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "merge-k-sorted-lists",
+                "climbing-stairs"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "subsets",
+                "number-of-provinces",
+                "permutations"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "subarray-sum-equals-k",
+                "subsets",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "longest-palindromic-subsequence",
+                "subsets",
+                "permutations"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "3sum",
+                "permutations",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "number-of-provinces",
+                "linked-list-cycle",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "range-sum-query-mutable",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "3sum",
+                "search-in-rotated-sorted-array",
+                "car-pooling"
+              ],
+              "first_relevant_rank": null
+            }
+          ]
+        },
+        "hyde": {
+          "hit@1": 0.5,
+          "hit@3": 0.7,
+          "mrr@5": 0.635,
+          "query_ms_p50": 6.1,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "merge-intervals",
+                "3sum",
+                "container-with-most-water"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "network-delay-time",
+                "search-in-rotated-sorted-array",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "minimum-window-substring",
+                "sliding-window-maximum",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "minimum-window-substring",
+                "sliding-window-maximum",
+                "longest-substring-without-repeating-characters"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "merge-intervals",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "network-delay-time",
+                "linked-list-cycle",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "single-number",
+                "3sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "sliding-window-maximum",
+                "daily-temperatures",
+                "course-schedule"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "merge-k-sorted-lists",
+                "search-in-rotated-sorted-array",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "network-delay-time",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "course-schedule",
+                "kth-largest-element-in-an-array",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "merge-intervals",
+                "3sum",
+                "single-number"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "binary-tree-level-order-traversal",
+                "jump-game"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "3sum",
+                "number-of-provinces",
+                "single-number"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "longest-palindromic-subsequence",
+                "subsets",
+                "longest-common-subsequence"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "coin-change",
+                "subsets",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "merge-intervals",
+                "kth-largest-element-in-an-array",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "linked-list-cycle",
+                "reverse-linked-list",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "merge-intervals",
+                "binary-tree-level-order-traversal"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "single-number",
+                "3sum",
+                "climbing-stairs"
+              ],
+              "first_relevant_rank": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "model": "jinaai/jina-embeddings-v2-base-zh",
+      "index_build_s": 20.79,
+      "results": {
+        "title": {
+          "hit@1": 0.35,
+          "hit@3": 0.5,
+          "mrr@5": 0.439,
+          "query_ms_p50": 7.7,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "3sum",
+                "search-in-rotated-sorted-array",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "rotting-oranges",
+                "binary-tree-level-order-traversal",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "implement-trie-prefix-tree",
+                "group-anagrams",
+                "binary-search"
+              ],
+              "first_relevant_rank": 4
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "longest-substring-without-repeating-characters",
+                "implement-trie-prefix-tree",
+                "minimum-window-substring"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "merge-intervals",
+                "search-in-rotated-sorted-array",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "subsets",
+                "permutations",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "group-anagrams",
+                "range-sum-query-mutable",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "merge-intervals",
+                "minimum-window-substring"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "subsets",
+                "merge-k-sorted-lists",
+                "two-sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "subarray-sum-equals-k",
+                "group-anagrams",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 3
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "linked-list-cycle",
+                "course-schedule",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "number-of-provinces",
+                "permutations",
+                "lru-cache"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "network-delay-time",
+                "subsets",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "number-of-provinces",
+                "3sum",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "jump-game",
+                "permutations",
+                "implement-trie-prefix-tree"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "group-anagrams",
+                "number-of-provinces",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "range-sum-query-mutable",
+                "merge-intervals",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "linked-list-cycle",
+                "reverse-linked-list",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "range-sum-query-mutable",
+                "binary-tree-level-order-traversal"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "subsets",
+                "car-pooling",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 1
+            }
+          ]
+        },
+        "code": {
+          "hit@1": 0.3,
+          "hit@3": 0.45,
+          "mrr@5": 0.395,
+          "query_ms_p50": 23.0,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "3sum",
+                "search-in-rotated-sorted-array",
+                "binary-search"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "binary-search",
+                "daily-temperatures",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "3sum",
+                "minimum-window-substring",
+                "binary-search"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "subarray-sum-equals-k",
+                "longest-substring-without-repeating-characters",
+                "longest-common-subsequence"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "3sum",
+                "binary-search",
+                "search-in-rotated-sorted-array"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "merge-k-sorted-lists",
+                "network-delay-time",
+                "linked-list-cycle"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "3sum",
+                "merge-k-sorted-lists",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "minimum-window-substring",
+                "merge-k-sorted-lists",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "3sum",
+                "merge-intervals",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "merge-k-sorted-lists",
+                "subarray-sum-equals-k"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "course-schedule",
+                "search-in-rotated-sorted-array",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "binary-search",
+                "3sum",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "subsets",
+                "network-delay-time",
+                "validate-binary-search-tree"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "number-of-provinces",
+                "subsets",
+                "permutations"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "3sum",
+                "merge-intervals",
+                "car-pooling"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "longest-palindromic-subsequence",
+                "3sum",
+                "number-of-provinces"
+              ],
+              "first_relevant_rank": 5
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "3sum",
+                "merge-intervals",
+                "binary-search"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "linked-list-cycle",
+                "merge-k-sorted-lists",
+                "permutations"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "binary-tree-level-order-traversal",
+                "merge-k-sorted-lists"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "3sum",
+                "merge-k-sorted-lists",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": null
+            }
+          ]
+        },
+        "hyde": {
+          "hit@1": 0.6,
+          "hit@3": 0.8,
+          "mrr@5": 0.692,
+          "query_ms_p50": 12.1,
+          "items": [
+            {
+              "slug": "two-sum-ii-input-array-is-sorted",
+              "gold": "双指针",
+              "top3": [
+                "3sum",
+                "longest-palindromic-subsequence",
+                "container-with-most-water"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "trapping-rain-water",
+              "gold": "双指针",
+              "top3": [
+                "container-with-most-water",
+                "merge-intervals",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-all-anagrams-in-a-string",
+              "gold": "滑动窗口",
+              "top3": [
+                "subarray-sum-equals-k",
+                "longest-substring-without-repeating-characters",
+                "minimum-window-substring"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "longest-repeating-character-replacement",
+              "gold": "滑动窗口",
+              "top3": [
+                "minimum-window-substring",
+                "sliding-window-maximum",
+                "longest-substring-without-repeating-characters"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "find-minimum-in-rotated-sorted-array",
+              "gold": "二分查找",
+              "top3": [
+                "search-in-rotated-sorted-array",
+                "3sum",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "koko-eating-bananas",
+              "gold": "二分查找",
+              "top3": [
+                "network-delay-time",
+                "car-pooling",
+                "merge-intervals"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "subarray-sums-divisible-by-k",
+              "gold": "前缀和",
+              "top3": [
+                "single-number",
+                "subarray-sum-equals-k",
+                "3sum"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "largest-rectangle-in-histogram",
+              "gold": "单调栈",
+              "top3": [
+                "daily-temperatures",
+                "sliding-window-maximum",
+                "kth-largest-element-in-an-array"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "next-greater-element-i",
+              "gold": "单调栈",
+              "top3": [
+                "two-sum",
+                "3sum",
+                "group-anagrams"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "top-k-frequent-elements",
+              "gold": "堆/优先队列",
+              "top3": [
+                "kth-largest-element-in-an-array",
+                "merge-intervals",
+                "3sum"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "course-schedule-ii",
+              "gold": "拓扑排序",
+              "top3": [
+                "course-schedule",
+                "kth-largest-element-in-an-array",
+                "network-delay-time"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "redundant-connection",
+              "gold": "并查集",
+              "top3": [
+                "merge-intervals",
+                "longest-increasing-subsequence",
+                "course-schedule"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "shortest-path-in-binary-matrix",
+              "gold": "BFS",
+              "top3": [
+                "binary-tree-level-order-traversal",
+                "subsets",
+                "course-schedule"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "combination-sum",
+              "gold": "DFS/回溯",
+              "top3": [
+                "merge-intervals",
+                "permutations",
+                "longest-increasing-subsequence"
+              ],
+              "first_relevant_rank": 2
+            },
+            {
+              "slug": "house-robber",
+              "gold": "动态规划",
+              "top3": [
+                "longest-palindromic-subsequence",
+                "coin-change",
+                "climbing-stairs"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "partition-equal-subset-sum",
+              "gold": "背包",
+              "top3": [
+                "coin-change",
+                "3sum",
+                "longest-palindromic-subsequence"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "non-overlapping-intervals",
+              "gold": "贪心",
+              "top3": [
+                "merge-intervals",
+                "longest-palindromic-subsequence",
+                "3sum"
+              ],
+              "first_relevant_rank": null
+            },
+            {
+              "slug": "linked-list-cycle-ii",
+              "gold": "链表技巧",
+              "top3": [
+                "linked-list-cycle",
+                "course-schedule",
+                "binary-search"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "lowest-common-ancestor-of-a-binary-tree",
+              "gold": "树的遍历",
+              "top3": [
+                "validate-binary-search-tree",
+                "binary-search",
+                "course-schedule"
+              ],
+              "first_relevant_rank": 1
+            },
+            {
+              "slug": "number-of-1-bits",
+              "gold": "位运算",
+              "top3": [
+                "3sum",
+                "merge-intervals",
+                "single-number"
+              ],
+              "first_relevant_rank": 3
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
