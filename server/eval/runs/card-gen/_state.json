@@ -1,0 +1,89 @@
+{
+  "harness_sha": "3b6f990e398dbee10b1272808d33cae16eba396d7221623c29b4e9c55e3523d4",
+  "metrics": [
+    {
+      "id": "card_pass",
+      "label": "card pass",
+      "kind": "binary"
+    },
+    {
+      "id": "no_spoiler",
+      "label": "no spoiler",
+      "kind": "binary"
+    },
+    {
+      "id": "idea_correct",
+      "label": "idea ok",
+      "kind": "binary"
+    },
+    {
+      "id": "complexity_correct",
+      "label": "complexity ok",
+      "kind": "binary"
+    },
+    {
+      "id": "hints_helpful",
+      "label": "hints helpful",
+      "kind": "binary"
+    },
+    {
+      "id": "pattern_strict",
+      "label": "pattern",
+      "kind": "binary"
+    },
+    {
+      "id": "pattern_lenient",
+      "label": "pattern (len.)",
+      "kind": "binary"
+    },
+    {
+      "id": "spoiler_hint_frac",
+      "label": "spoiler hints",
+      "kind": "float",
+      "scale": 1,
+      "better": "lower"
+    }
+  ],
+  "perf_fields": [
+    {
+      "id": "latency_s",
+      "label": "latency",
+      "unit": "s"
+    },
+    {
+      "id": "cost_usd",
+      "label": "cost",
+      "unit": "$"
+    },
+    {
+      "id": "output_tok_per_s",
+      "label": "out tok/s"
+    },
+    {
+      "id": "rounds",
+      "label": "rounds"
+    },
+    {
+      "id": "judge_cost_usd",
+      "label": "judge $",
+      "unit": "$"
+    }
+  ],
+  "harness_paths": [
+    "eval/run_eval.py",
+    "eval/judge.py",
+    "eval/dataset.jsonl",
+    "uv.lock",
+    "src/leetrecall_ai"
+  ],
+  "prices": {
+    "claude-opus-5-5": {
+      "in": 4.0,
+      "out": 20.0
+    },
+    "claude-fable-5-2": {
+      "in": 8.0,
+      "out": 40.0
+    }
+  }
+}
