@@ -210,7 +210,15 @@ def pct(xs: list[float], q: float) -> float:
 
 def summarize() -> None:
     data = {v: load_results(v) for v in VARIANTS}
-    errs = {v: len((FLOW / v / "errors.jsonl").read_text().splitlines()) if (FLOW / v / "errors.jsonl").exists() else 0 for v in VARIANTS}
+    def open_errors(v: str) -> int:
+        """Failed attempts not yet superseded by a later successful row for the same (case, rep)."""
+        p = FLOW / v / "errors.jsonl"
+        if not p.exists():
+            return 0
+        ok = {(d["prompt_id"], d["rep"]) for d in data[v]}
+        return len({(e["prompt_id"], e["rep"]) for e in map(json.loads, p.read_text().splitlines())} - ok)
+
+    errs = {v: open_errors(v) for v in VARIANTS}
     reviewed = sum(r["reviewed"] for r in load_rows())
     lines = ["# Card generation eval: Critic loop vs no Critic", "",
              f"Pipeline model `{config.MODEL}`, judge `{JUDGE_MODEL}`. Gold labels human-reviewed: {reviewed}/20. "
