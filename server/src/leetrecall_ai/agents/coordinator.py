@@ -114,6 +114,9 @@ async def main() -> None:
     print("metrics:", json.dumps(r.metrics, ensure_ascii=False, indent=2))
     for i, rd in enumerate(r.critic.history, 1):
         v = rd["verdict"]
+        if rd.get("malformed"):
+            print(f"\n--- round {i}: critic verdict malformed ({rd.get('error')}), treated as not passed")
+            continue
         spoilers = [h["index"] for h in v["hint_checks"] if h["spoils"]]
         print(f"\n--- round {i}: passed={rd['passed']} idea={v['idea_correct']} cx={v['complexity_correct']} "
               f"pattern={v['pattern_correct']} spoiler_hints={spoilers}")

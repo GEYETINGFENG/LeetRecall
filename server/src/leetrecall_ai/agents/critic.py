@@ -12,6 +12,7 @@ from google.adk.agents import BaseAgent, LlmAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.agents.readonly_context import ReadonlyContext
 from google.adk.events import Event, EventActions
+from pydantic import ValidationError
 
 from .. import config
 from ..schemas import CriticVerdict
@@ -65,14 +66,30 @@ def passed(v: CriticVerdict | dict) -> bool:
     return v.idea_correct and v.complexity_correct and v.pattern_correct and not any(h.spoils for h in v.hint_checks)
 
 
+def review_round(verdict: object, draft: object) -> dict:
+    """One round's record. A malformed verdict counts as 'not passed' instead of crashing the request.
+
+    With thinking on, ADK can't force the structured-output tool, so the API does not enforce the
+    schema; the eval caught a verdict with 1 hint check instead of 3 (1 of 60 Critic runs). Failing
+    closed keeps the loop going (the next round re-reviews) and the request still returns a card.
+    """
+    try:
+        return {"draft": draft, "verdict": verdict, "passed": passed(verdict), "malformed": False}
+    except ValidationError as e:
+        return {"draft": draft, "verdict": verdict, "passed": False, "malformed": True,
+                "error": " ".join(str(e).splitlines()[:3])}  # "N validation errors ... <field> <reason>"
+
+
 class Gate(BaseAgent):
     """Deterministic loop controller: records the round, exits the loop when the verdict passes."""
 
     async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         s = ctx.session.state
-        ok = passed(s[VERDICT])
-        rounds = list(s.get(ROUNDS, [])) + [{"draft": s[DRAFT], "verdict": s[VERDICT], "passed": ok}]
+        rec = review_round(s[VERDICT], s[DRAFT])
+        delta = {ROUNDS: list(s.get(ROUNDS, [])) + [rec]}
+        if rec["malformed"]:
+            delta[VERDICT] = None  # don't feed the writer an unparseable review; it redrafts cleanly
         yield Event(
             author=self.name, invocation_id=ctx.invocation_id,
-            actions=EventActions(state_delta={ROUNDS: rounds}, escalate=ok),
+            actions=EventActions(state_delta=delta, escalate=rec["passed"]),
         )
