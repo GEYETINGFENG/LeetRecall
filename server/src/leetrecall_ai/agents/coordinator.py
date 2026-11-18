@@ -76,10 +76,13 @@ def assemble(problem: ProblemInput, trace: RunTrace, use_critic: bool, metrics: 
     )
 
 
-async def generate_card(problem: ProblemInput, *, use_critic: bool = True, max_rounds: int = 3) -> CardResult:
+async def generate_card(problem: ProblemInput, *, use_critic: bool = True, max_rounds: int = 3,
+                        mcp_connection: Any = None) -> CardResult:
+    """mcp_connection: ADK connection params for the MCP server. Default = spawn it over stdio (CLI, eval);
+    the HTTP service passes StreamableHTTPConnectionParams to its own in-process /mcp endpoint."""
     collector = setup_tracing()
-    toolset = McpToolset(connection_params=StdioConnectionParams(server_params=mcp_params(), timeout=30),
-                         tool_filter=pattern_analyzer.READ_TOOLS)
+    conn = mcp_connection or StdioConnectionParams(server_params=mcp_params(), timeout=30)
+    toolset = McpToolset(connection_params=conn, tool_filter=pattern_analyzer.READ_TOOLS)
     with tracer().start_as_current_span("generate_card", attributes={
             "leetrecall.slug": problem.slug, "leetrecall.critic": use_critic, "leetrecall.max_rounds": max_rounds}) as root:
         trace_id = root.get_span_context().trace_id

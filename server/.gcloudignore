@@ -1,0 +1,13 @@
+# gcloud --source uploads this directory to Cloud Build; mirror .dockerignore so secrets never leave the machine
+.env
+.env.*
+.venv/
+var/
+**/__pycache__/
+eval/
+spikes/
+tests/
+data/solutions/
+data/eval_solutions/
+.pytest_cache/
+.DS_Store

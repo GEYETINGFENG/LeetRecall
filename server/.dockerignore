@@ -1,0 +1,15 @@
+# never ship secrets or local state
+.env
+.env.*
+.venv/
+var/
+**/__pycache__/
+# not needed at runtime
+eval/
+spikes/
+tests/
+data/solutions/
+data/eval_solutions/
+.pytest_cache/
+.DS_Store
+deploy.sh
